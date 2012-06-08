@@ -369,6 +369,16 @@ class Stringpool_template
   {
     bool
     operator()(const Hashkey&, const Hashkey&) const;
+
+    typedef Hashkey        value_type;
+
+    template<typename _Other>
+    struct rebind
+    { 
+      //typedef new_allocator<_Tp1> other; 
+      typedef allocator<_Other> other;
+    };
+
   };
 
   // The hash table is a map from strings to Keys.

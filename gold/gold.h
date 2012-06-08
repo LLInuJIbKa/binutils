@@ -133,7 +133,8 @@ extern "C" ssize_t pread(int, void*, size_t, off_t);
 #endif
 
 #ifndef HAVE_FTRUNCATE
-extern "C" int ftruncate(int, off_t);
+//extern "C" int ftruncate(int, off_t);
+//extern int ftruncate (int __fd, __off_t __length) __THROW __wur;
 #endif
 
 #ifndef HAVE_FFSLL
