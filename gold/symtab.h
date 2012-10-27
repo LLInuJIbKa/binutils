@@ -1584,12 +1584,24 @@ class Symbol_table
     {
       return key.first ^ key.second;
     }
+
+
   };
 
   struct Symbol_table_eq
   {
     bool
     operator()(const Symbol_table_key&, const Symbol_table_key&) const;
+
+    typedef Symbol_table_key        value_type;
+    
+    template<typename _Other>
+    struct rebind
+    { 
+      //typedef new_allocator<_Tp1> other; 
+      typedef allocator<_Other> other;
+    };
+
   };
 
   typedef Unordered_map<Symbol_table_key, Symbol*, Symbol_table_hash,
